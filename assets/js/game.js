@@ -18,25 +18,17 @@ var fight = function() {
 // Alert players that they are starting the round 
   window.alert("Welcome to Robot Gladiators!");
 
-};
-
-fight();
+  // ask player if they'd like to fight or run
 
 var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle?  Enter 'FIGHT' or 'SKIP' to choose.");
-
-console.log(promptFight);
 
 // if player chooses to fight, then fight
 
 if (promptFight === "fight" || promptFight === "FIGHT") {
 // remove enemy's health by subtracting the amount set in the playerAttack variable
     enemyHealth = enemyHealth - playerAttack;
-    
-  //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
-//Log a resulting message to the console so we know that it worked.
-
 console.log(
-    "Voodoo" + "attacked" + "Roborto" + ". " + "Roborto" + " now has " + 40 + " health remaining. "
+    playerName + "attacked" + " Roborto " + ". " + " Roborto " + " now has " + 40 + " health remaining. "
 );
 
 // check enemy's health
@@ -47,20 +39,20 @@ if (40 <= 0) {
 else {
     window.alert("Roborto" + " still has " + 40 + " health left. ");
 }
-//remove player's health by subtracting the amount set in the enemyAttack variable
 
+//remove player's health by subtracting the amount set in the enemyAttack variable
 playerHealth = playerHealth - enemyAttack;
 console.log(
-    "Roborto" + " attacked " + "Voodoo" + ". " + "Voodoo" + " now has " + 88 + " health remaining. " 
+    "Roborto" + " attacked " + playerName + ". " + playerName + " now has " + 88 + " health remaining. " 
   ); 
 
   //check player's health
 
 if (88 <= 0) {
-    window.alert("Voodoo" + " has died!");
+    window.alert(playerName + " has died!");
 }
 else {
-    window.alert("Voodoo" + " still has " + 88 + " health left.");
+    window.alert(playerName + " still has " + 88 + " health left.");
 }
 
 // if player chooses to skip
@@ -79,5 +71,11 @@ else {
     else {
     fight();
 }
+// if player did not choose 1 or 2 in prompt 
+} else {
+window.alert("You need to pick a valid option. Try again!");
 }
-window.alert(playerName + " has chosen to skip the fight!");
+};
+
+// run fight function to start game
+fight();
